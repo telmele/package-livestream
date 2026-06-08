@@ -15,7 +15,7 @@ def run_in_thread(fn):
             try:
                 fn()
             except:
-                print >>sys.stderr, "error in %r. retrying"
+                sys.stderr.write("error in %r. retrying\n" % fn)
                 traceback.print_exc()
                 time.sleep(1)
     t = threading.Thread(target=loop)
