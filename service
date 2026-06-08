@@ -1,6 +1,7 @@
 #!/bin/sh
-# bump14
-if [ ! -e .extracted/complete ]; then
+# bump15
+if [ ! -e .extracted/complete ] || [ streamer.tgz -nt .extracted/complete ]; then
+    rm -rf .extracted
     mkdir -p .extracted
     tar xfvz streamer.tgz -C .extracted
     touch .extracted/complete
